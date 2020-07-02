@@ -65,7 +65,7 @@ app.post('/api/reset', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  randomNumber = randomNumber(minNum, maxNum);
+  ranNumAnswer = randomNumber(minNum, maxNum);
   console.log('RANDOM:', ranNumAnswer);
   console.log('Server is running on port', PORT)
 });
