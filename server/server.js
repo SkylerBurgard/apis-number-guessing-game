@@ -29,6 +29,10 @@ function randomNumber(min, max) {
 
 // TODO: GET for all guess history
 
+app.get('/api/guesses', (req, res) => {
+  res.send(history);
+});
+
 // TODO: POST to receive my round of guesses
 
 // TEST IN POSTMAN!!!!!
