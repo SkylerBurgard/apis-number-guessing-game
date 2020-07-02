@@ -16,7 +16,7 @@ app.use(express.static('server/public'));
 const minNum = 1;
 const maxNum = 25;
 let ranNumAnswer = 0;
-const history = [];
+let history = [];
 
 //each item in history will represent a route
 
@@ -58,9 +58,14 @@ app.post('/api/guesses', (req, res) => {
 
 // get something off req first using req.body 
 // TODO: POST to reset all random number
+app.post('/api/reset', (req, res) => {
+  history = [];
+  ranNumAnswer = randomNumber(minNum, maxNum);
+  res.sendStatus(201);
+});
 
 app.listen(PORT, () => {
   randomNumber = randomNumber(minNum, maxNum);
   console.log('RANDOM:', ranNumAnswer);
   console.log('Server is running on port', PORT)
-})
+});
