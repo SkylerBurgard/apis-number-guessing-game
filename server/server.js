@@ -39,17 +39,30 @@ app.get('/api/guesses', (req, res) => {
 
 app.post('/api/guesses', (req, res) => {
   const playerGuesses = req.body;
-
+  let result = null;
   //req.body structure
   // {
   //   players: [{
   //     name: 'string'
-  //     guess: number
-  //   }]}
+  //     guess: number, playerGuesses.players[i].result = 'correct
+  ; //   }]}
+
+  for (let i = 0; i < playerGuesses.players.length; i++) {
+    const playerGuess = playerGuesses.players[i];
+
+    if (playerGuess.guess === ranNumAnswer) {
+      result = 'correct';
+    } else if (playerGuess.guess < ranNumAnswer) {
+      result = "low";
+    } else if (playerGuesses.guess >
+      result = 'high';
+    }
+
+  }
+  // come back to 11:16am mark
 
   history.push(playerGuesses);
   console.log(history);
-
   res.sendStatus(201);
 
   // TODO: use these above code comments, later in this assignment.
